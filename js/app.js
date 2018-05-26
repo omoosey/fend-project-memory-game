@@ -1,7 +1,11 @@
 /*
  * Create a list that holds all of your cards
  */
-let cards = document.getElementsByClassName("card");
+let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", 
+	"fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
+
+// let cards = document.getElementsByClassName("card");
+
 // console.log(cards[1].firstElementChild.className);
 /*
  * Display the cards on the page
