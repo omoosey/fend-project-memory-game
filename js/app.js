@@ -1,16 +1,17 @@
 /*
  * Create a list that holds all of your cards
  */
-let icons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", 
+const icons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", 
 	"fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
-let cards = document.getElementsByClassName("card");
+const cards = document.getElementsByClassName("card");
 let amountClicked = 0;
 let compareList = [];
 let cardList = [];
 let numOfMoves = 0;
-let moveCount = document.querySelector(".moves");
+const moveCount = document.querySelector(".moves");
 let stars = document.getElementsByClassName("fa-star");
+const timer = document.querySelector(".timer");
 
 /*
  * Display the cards on the page
@@ -96,6 +97,19 @@ function moveCounter(){
 		stars[1].setAttribute("class", "fa fa-star-o");
 	}
 }
+
+// Update timer on page
+function timerCount(){
+	let startTime = Date.now();
+	setInterval(function(){
+		let currentTime = Date.now();
+		let difference = currentTime - startTime;
+		timer.textContent = Math.round(difference/1000);
+	}, 1000);
+}
+
+timerCount();
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
