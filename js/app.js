@@ -12,7 +12,8 @@ let numOfMoves = 0;
 const moveCount = document.querySelector(".moves");
 let stars = document.getElementsByClassName("fa-star");
 const timer = document.querySelector(".timer");
-const startTime = Date.now();
+let startTime = Date.now();
+const restartButton = document.querySelector(".restart");
 
 /*
  * Display the cards on the page
@@ -100,7 +101,7 @@ function moveCounter(){
 }
 
 // Update timer on page by second
-var timerID = setInterval(timerCount, 1000);
+let timerID = setInterval(timerCount, 1000);
 
 function timerCount(){
 	let currentTime = Date.now();
@@ -108,6 +109,22 @@ function timerCount(){
 	timer.textContent = Math.round(difference/1000)
 }
 
+// Restart function
+function restart(){
+	amountClicked = 0;
+	compareList = [];
+	cardList = [];
+	numOfMoves = 0;
+	startTime = Date.now();
+	createGrid();
+	clearInterval(timerID);
+	timer.textContent = 0;
+	var timerID = setInterval(timerCount, 1000);
+}
+
+restartButton.addEventListener("click", function(){
+	restart();
+})
 
 
 
