@@ -5,7 +5,8 @@ let icons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt
 	"fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
 let cards = document.getElementsByClassName("card");
-
+let amountClicked = 0;
+let compareList = [];
 // console.log(cards[1].firstElementChild.className);
 /*
  * Display the cards on the page
@@ -24,7 +25,7 @@ function createGrid(){
 		card.appendChild(icon);
 	}
 }
-
+createGrid();
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -45,7 +46,22 @@ function show(element){
 	element.classList.add("show");
 }
 
-
+function compare(card){
+	let clickedCard = card.firstElementChild.classList[1];
+	compareList.push(clickedCard);
+	amountClicked += 1;
+	if (amountClicked >= 2){
+		if(compareList[0] == compareList[1]){
+			console.log("match!");
+			compareList = [];
+			amountClicked = 0;
+		} else {
+			console.log("no match :(");
+			compareList = [];
+			amountClicked = 0;
+		}
+	}
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -60,5 +76,6 @@ function show(element){
 for (let card of cards){
 	card.addEventListener("click", function(event){
 		show(card);	
+		compare(card);
 	})
 }
