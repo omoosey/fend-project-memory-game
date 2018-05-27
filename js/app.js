@@ -10,6 +10,7 @@ let compareList = [];
 let cardList = [];
 let numOfMoves = 0;
 let moveCount = document.querySelector(".moves");
+let stars = document.getElementsByClassName("fa-star");
 
 // console.log(cards[1].firstElementChild.className);
 /*
@@ -84,6 +85,11 @@ function closeCards(openedCards){
 function moveCounter(){
 	numOfMoves++;
 	moveCount.textContent = numOfMoves;
+	if (numOfMoves == 9) {
+		stars[2].setAttribute("class", "fa fa-star-o");
+	} else if (numOfMoves == 17){
+		stars[1].setAttribute("class", "fa fa-star-o");
+	}
 }
 /*
  * set up the event listener for a card. If a card is clicked:
