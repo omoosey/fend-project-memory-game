@@ -8,6 +8,9 @@ let cards = document.getElementsByClassName("card");
 let amountClicked = 0;
 let compareList = [];
 let cardList = [];
+let numOfMoves = 0;
+let moveCount = document.querySelector(".moves");
+
 // console.log(cards[1].firstElementChild.className);
 /*
  * Display the cards on the page
@@ -58,13 +61,12 @@ function compare(card){
 	compareList.push(cardIcon);
 	amountClicked += 1;
 	if (amountClicked >= 2){
+		moveCounter();
 		if(compareList[0] == compareList[1]){
-			console.log("match!");
 			compareList = [];
 			cardList = [];
 			amountClicked = 0;
 		} else {
-			console.log("no match :(");
 			compareList = [];
 			amountClicked = 0;
 			closeCards(cardList); 
@@ -77,6 +79,11 @@ function closeCards(openedCards){
 		hide(openedCard);
 	}
 	cardList = [];
+}
+
+function moveCounter(){
+	numOfMoves++;
+	moveCount.textContent = numOfMoves;
 }
 /*
  * set up the event listener for a card. If a card is clicked:
