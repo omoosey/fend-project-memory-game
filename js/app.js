@@ -7,6 +7,7 @@ let icons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt
 let cards = document.getElementsByClassName("card");
 let amountClicked = 0;
 let compareList = [];
+let cardList = [];
 // console.log(cards[1].firstElementChild.className);
 /*
  * Display the cards on the page
@@ -46,21 +47,36 @@ function show(element){
 	element.classList.add("show");
 }
 
+function hide(element){
+	element.classList.remove("open");
+	element.classList.remove("show");
+}
+
 function compare(card){
-	let clickedCard = card.firstElementChild.classList[1];
-	compareList.push(clickedCard);
+	let cardIcon = card.firstElementChild.classList[1];
+	cardList.push(card);
+	compareList.push(cardIcon);
 	amountClicked += 1;
 	if (amountClicked >= 2){
 		if(compareList[0] == compareList[1]){
 			console.log("match!");
 			compareList = [];
+			cardList = [];
 			amountClicked = 0;
 		} else {
 			console.log("no match :(");
 			compareList = [];
 			amountClicked = 0;
+			closeCards(cardList); 
 		}
 	}
+}
+
+function closeCards(openedCards){
+	for(let openedCard of openedCards){
+		hide(openedCard);
+	}
+	cardList = [];
 }
 /*
  * set up the event listener for a card. If a card is clicked:
