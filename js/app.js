@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", 
+let icons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", 
 	"fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
 // let cards = document.getElementsByClassName("card");
@@ -13,7 +13,18 @@ let cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-
+function createGrid(){
+	shuffle(icons);
+	let count = 0;
+	let cards = document.getElementsByClassName("card");
+	//go through each card element and add icon from list of icons
+	for (let card of cards){
+		let icon = document.createElement("i");
+		icon.setAttribute("class", icons[count])
+		count++;
+		card.appendChild(icon);
+	}
+}
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
