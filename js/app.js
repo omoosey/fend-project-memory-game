@@ -4,7 +4,7 @@
 let icons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", 
 	"fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
-// let cards = document.getElementsByClassName("card");
+let cards = document.getElementsByClassName("card");
 
 // console.log(cards[1].firstElementChild.className);
 /*
@@ -16,7 +16,6 @@ let icons = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt
 function createGrid(){
 	shuffle(icons);
 	let count = 0;
-	let cards = document.getElementsByClassName("card");
 	//go through each card element and add icon from list of icons
 	for (let card of cards){
 		let icon = document.createElement("i");
@@ -25,6 +24,7 @@ function createGrid(){
 		card.appendChild(icon);
 	}
 }
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -41,6 +41,8 @@ function shuffle(array) {
 }
 
 
+
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -51,3 +53,9 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+for (let card of cards){
+	card.addEventListener("click", function(event){
+		
+	})
+}
