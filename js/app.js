@@ -40,7 +40,10 @@ function shuffle(array) {
     return array;
 }
 
-
+function show(element){
+	element.classList.add("open");
+	element.classList.add("show");
+}
 
 
 /*
@@ -56,6 +59,6 @@ function shuffle(array) {
 
 for (let card of cards){
 	card.addEventListener("click", function(event){
-		
+		show(card);	
 	})
 }
