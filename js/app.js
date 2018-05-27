@@ -12,6 +12,7 @@ let numOfMoves = 0;
 const moveCount = document.querySelector(".moves");
 let stars = document.getElementsByClassName("fa-star");
 const timer = document.querySelector(".timer");
+const startTime = Date.now();
 
 /*
  * Display the cards on the page
@@ -98,17 +99,17 @@ function moveCounter(){
 	}
 }
 
-// Update timer on page
+// Update timer on page by second
+var timerID = setInterval(timerCount, 1000);
+
 function timerCount(){
-	let startTime = Date.now();
-	setInterval(function(){
-		let currentTime = Date.now();
-		let difference = currentTime - startTime;
-		timer.textContent = Math.round(difference/1000);
-	}, 1000);
+	let currentTime = Date.now();
+	let difference = currentTime - startTime;
+	timer.textContent = Math.round(difference/1000)
 }
 
-timerCount();
+
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
