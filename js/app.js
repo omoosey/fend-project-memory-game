@@ -12,7 +12,6 @@ let numOfMoves = 0;
 let moveCount = document.querySelector(".moves");
 let stars = document.getElementsByClassName("fa-star");
 
-// console.log(cards[1].firstElementChild.className);
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -31,6 +30,7 @@ function createGrid(){
 	}
 }
 createGrid();
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -46,16 +46,19 @@ function shuffle(array) {
     return array;
 }
 
+// Add classes to flip card and show icon
 function show(element){
 	element.classList.add("open");
 	element.classList.add("show");
 }
 
+// Remove clasess so card is flipped over and icon is hidden
 function hide(element){
 	element.classList.remove("open");
 	element.classList.remove("show");
 }
 
+// Function to compare the two cards that have been clicked on
 function compare(card){
 	let cardIcon = card.firstElementChild.classList[1];
 	cardList.push(card);
@@ -75,6 +78,7 @@ function compare(card){
 	}
 }
 
+// Flips the cards that were clicked so icon is hidden
 function closeCards(openedCards){
 	for(let openedCard of openedCards){
 		hide(openedCard);
@@ -82,6 +86,7 @@ function closeCards(openedCards){
 	cardList = [];
 }
 
+// Increments and displays the current number of moves and changes the star rating
 function moveCounter(){
 	numOfMoves++;
 	moveCount.textContent = numOfMoves;
