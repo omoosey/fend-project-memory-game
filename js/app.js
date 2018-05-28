@@ -80,7 +80,7 @@ function hide(element){
 function matched(matchedCards){
 	for(let matchedCard of matchedCards){
 		matchedCard.classList.add("match");
-		matchedCard.remo
+		matchedCard.removeEventListener("click", cardClick);
 	}
 	cardList = [];
 }
