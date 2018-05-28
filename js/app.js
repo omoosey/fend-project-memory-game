@@ -80,7 +80,6 @@ function hide(element){
 function matched(matchedCards){
 	for(let matchedCard of matchedCards){
 		matchedCard.classList.add("match");
-		matchedCard.removeEventListener("click", cardClick);
 	}
 	cardList = [];
 }
@@ -118,6 +117,7 @@ function compare(card){
 	let cardIcon = card.firstElementChild.classList[1];
 	cardList.push(card);
 	compareList.push(cardIcon);
+	card.removeEventListener("click", cardClick);
 	amountClicked += 1;
 	if (amountClicked >= 2){
 		moveCounter();
