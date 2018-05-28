@@ -3,18 +3,15 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Authors](#authors)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+To get started playing the game load the index page. The timer will start as soon as the page is loaded.
 
-To get started, open `js/app.js` and start building out the app's functionality
+Click a square(card) to flip it and reveal its icon. Attempt to match the card to a second square(card) by clicking on a second square. If you can match all the cards in 8 moves/turns, you will get a 3 star score. 9 - 16 moves/turns will result in a 2 star score and anything greater than 16 will result in 1 star. Click the restart button at the top the restart the game.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Authors
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+**Udacity** *Starter code* [Link to starter code]https://github.com/udacity/fend-project-memory-game
+**Mariano Salamanca Jr.** *Finished project* [Github]https://github.com/omoosey
