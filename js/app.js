@@ -99,8 +99,14 @@ function wrongCards(incorrectCards){
 }
 
 function winner(){
-	modal.style.display = "block";
 	clearInterval(timerID);
+	const winTimer = document.querySelector(".winTimer");
+	const winMoves = document.querySelector(".winMoves");
+	const winStars = document.querySelector(".winStars");
+	winTimer.textContent = timer.textContent;
+	winMoves.textContent = moveCount.textContent;
+	winStars.textContent = document.getElementsByClassName("fa-star").length;
+	modal.style.display = "block";
 }
 
 // Function to compare the two cards that have been clicked on
@@ -125,7 +131,7 @@ function compare(card){
 			wrongCards(cardList);
 			setTimeout(function() {
 				closeCards(cardList);
-			}, 750); 
+			}, 700); 
 		}
 	}
 }
