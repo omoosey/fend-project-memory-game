@@ -80,6 +80,7 @@ function hide(element){
 function matched(matchedCards){
 	for(let matchedCard of matchedCards){
 		matchedCard.classList.add("match");
+		matchedCard.remo
 	}
 	cardList = [];
 }
@@ -98,6 +99,7 @@ function wrongCards(incorrectCards){
 	}
 }
 
+// Winner function updates win modal
 function winner(){
 	clearInterval(timerID);
 	const winTimer = document.querySelector(".winTimer");
@@ -197,10 +199,11 @@ restartButton.addEventListener("click", function(){
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+function cardClick(){
+	show(this);	
+	compare(this);
+};
 
 for (let card of cards){
-	card.addEventListener("click", function(event){
-		show(card);	
-		compare(card);
-	})
+	card.addEventListener("click", cardClick);
 }
