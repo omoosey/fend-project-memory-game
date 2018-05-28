@@ -89,6 +89,7 @@ function matched(matchedCards){
 function closeCards(openedCards){
 	for(let openedCard of openedCards){
 		hide(openedCard);
+		openedCard.addEventListener("click", cardClick);
 	}
 	cardList = [];
 }
@@ -96,6 +97,7 @@ function closeCards(openedCards){
 function wrongCards(incorrectCards){
 	for(let incorrectCard of incorrectCards){
 		incorrectCard.classList.add("wrong");
+		incorrectCard.removeEventListener("click", cardClick);
 	}
 }
 
