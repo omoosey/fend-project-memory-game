@@ -61,6 +61,22 @@ function hide(element){
 	element.classList.remove("show");
 }
 
+// Add match class to cards
+function matched(matchedCards){
+	for(let matchedCard of matchedCards){
+		matchedCard.classList.add("match");
+	}
+	cardList = [];
+}
+
+// Flips the cards that were clicked so icon is hidden
+function closeCards(openedCards){
+	for(let openedCard of openedCards){
+		hide(openedCard);
+	}
+	cardList = [];
+}
+
 // Function to compare the two cards that have been clicked on
 function compare(card){
 	let cardIcon = card.firstElementChild.classList[1];
@@ -71,22 +87,14 @@ function compare(card){
 		moveCounter();
 		if(compareList[0] == compareList[1]){
 			compareList = [];
-			cardList = [];
 			amountClicked = 0;
+			matched(cardList);
 		} else {
 			compareList = [];
 			amountClicked = 0;
 			closeCards(cardList); 
 		}
 	}
-}
-
-// Flips the cards that were clicked so icon is hidden
-function closeCards(openedCards){
-	for(let openedCard of openedCards){
-		hide(openedCard);
-	}
-	cardList = [];
 }
 
 // Increments and displays the current number of moves and changes the star rating
