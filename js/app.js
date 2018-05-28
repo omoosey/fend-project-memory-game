@@ -59,6 +59,7 @@ function show(element){
 function hide(element){
 	element.classList.remove("open");
 	element.classList.remove("show");
+	element.classList.remove("wrong");
 }
 
 // Add match class to cards
@@ -77,6 +78,12 @@ function closeCards(openedCards){
 	cardList = [];
 }
 
+function wrongCards(incorrectCards){
+	for(let incorrectCard of incorrectCards){
+		incorrectCard.classList.add("wrong");
+	}
+}
+
 // Function to compare the two cards that have been clicked on
 function compare(card){
 	let cardIcon = card.firstElementChild.classList[1];
@@ -92,7 +99,10 @@ function compare(card){
 		} else {
 			compareList = [];
 			amountClicked = 0;
-			closeCards(cardList); 
+			wrongCards(cardList);
+			setTimeout(function() {
+				closeCards(cardList);
+			}, 750); 
 		}
 	}
 }
