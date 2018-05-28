@@ -14,4 +14,5 @@ Click a square(card) to flip it and reveal its icon. Attempt to match the card t
 ## Authors
 
 **Udacity** *Starter code* [Link to starter code]https://github.com/udacity/fend-project-memory-game
+
 **Mariano Salamanca Jr.** *Finished project* [Github]https://github.com/omoosey
