@@ -74,6 +74,7 @@ function hide(element){
 	element.classList.remove("show");
 	element.classList.remove("wrong");
 	element.classList.remove("match");
+	element.addEventListener("click", cardClick);
 }
 
 // Add match class to cards
@@ -88,7 +89,6 @@ function matched(matchedCards){
 function closeCards(openedCards){
 	for(let openedCard of openedCards){
 		hide(openedCard);
-		openedCard.addEventListener("click", cardClick);
 	}
 	cardList = [];
 }
