@@ -115,10 +115,22 @@ function restart(){
 	compareList = [];
 	cardList = [];
 	numOfMoves = 0;
+	moveCount.textContent = numOfMoves;
 	startTime = Date.now();
-	createGrid();
 	clearInterval(timerID);
 	timer.textContent = 0;
+
+	for (let card of cards){
+		card.removeChild(card.firstElementChild);
+		hide(card);
+	}
+
+	const currentStars = document.querySelectorAll(".stars i");
+	for (let star of currentStars){
+		star.setAttribute("class", "fa fa-star");
+	}
+
+	createGrid();
 	var timerID = setInterval(timerCount, 1000);
 }
 
