@@ -14,6 +14,19 @@ let stars = document.getElementsByClassName("fa-star");
 const timer = document.querySelector(".timer");
 let startTime = Date.now();
 const restartButton = document.querySelector(".restart");
+let matches = 0;
+const modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+
+span.addEventListener("click", function(){
+	modal.style.display = "none";
+});
+
+window.addEventListener("click", function(event){
+	if(event.target == modal){
+		modal.style.display = "none";
+	}
+});
 
 /*
  * Display the cards on the page
@@ -60,6 +73,7 @@ function hide(element){
 	element.classList.remove("open");
 	element.classList.remove("show");
 	element.classList.remove("wrong");
+	element.classList.remove("match");
 }
 
 // Add match class to cards
@@ -84,6 +98,11 @@ function wrongCards(incorrectCards){
 	}
 }
 
+function winner(){
+	modal.style.display = "block";
+	clearInterval(timerID);
+}
+
 // Function to compare the two cards that have been clicked on
 function compare(card){
 	let cardIcon = card.firstElementChild.classList[1];
@@ -96,6 +115,10 @@ function compare(card){
 			compareList = [];
 			amountClicked = 0;
 			matched(cardList);
+			matches++;
+			if(matches == 8){
+				winner();
+			}
 		} else {
 			compareList = [];
 			amountClicked = 0;

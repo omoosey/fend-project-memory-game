@@ -10,11 +10,20 @@
 </head>
 <body>
 
+    <!-- From w3schools guide https://www.w3schools.com/howto/howto_css_modals.asp -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>YOU'VE WON!</h2>
+            <p>It took your <span class="winMoves">0</span> moves and <span class="winTimer">0</span> seconds with a <span>0</span> star rating!</p>        
+        </div>
+    </div>
+
     <div class="container">
         <header>
             <h1>Matching Game</h1>
         </header>
-
+        
         <section class="score-panel">
         	<ul class="stars">
         		<li><i class="fa fa-star"></i></li>
